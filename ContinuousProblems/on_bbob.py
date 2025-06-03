@@ -27,12 +27,14 @@ def run():
         print(f"Testing on {bbob_problem.name}")
         wrapped_problem =  ContinuousProblemWrapper(bbob_problem)
         solution_samples = [wrapped_problem.random_solution() for _ in range(solution_sample_quantity)]
+
+        samples_per_CP = 12
         marginalities = detect_marginality_of_continuous(wrapped_problem,
                                          solution_samples,
-                                         samples_per_CP=12)
+                                         samples_per_CP=samples_per_CP)
 
         # NOTE: I'm still not sure how to normalise these, but my guess would be marginality / (samples_per_CP  * (samples_per_CP - 1))
-        print(np.round(marginalities, 2))
+        print(np.round(marginalities / (samples_per_CP * (samples_per_CP - 1)), 2))
 
 
 run()
