@@ -14,8 +14,7 @@ class CustomContinuousProblem(ContinuousProblem):
         super().__init__(np.zeros(10), np.ones(10))
 
     def fitness_function(self, x):
-        v_0, v_1, v_2, v_3, v_4, v_5, v_6, v_7, v_8, v_9 = x
-        return np.prod(x)
+        return np.prod(x-0.5)
 
 
 def run():
@@ -42,3 +41,6 @@ def run():
 
 
 run()
+
+
+

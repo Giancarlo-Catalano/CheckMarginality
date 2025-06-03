@@ -21,7 +21,7 @@ def detect_marginality_of_continuous(problem: ContinuousProblem,
             fitness = problem.fitness_function(perturbed_solution)
             cp.append(fitness)
 
-        return get_domination_from_fitnesses(cp)
+        return get_domination_from_fitnesses(np.array(cp))
 
     def distance_metric_between_dominations(dom_a, dom_b):
         return np.sum(np.abs(dom_a - dom_b)) / 2
