@@ -13,6 +13,16 @@ class LeadingOnes(CombinatorialProblem):
                 return float(index)
         return float(self.n)
 
+
+class SixBitMultiplexer(CombinatorialProblem):
+    def __init__(self):
+        super().__init__(np.ones(6, dtype=int) * 2)
+
+    def fitness_function(self, x):
+        position = 2*x[0]+x[1]
+        return x[position + 2]
+
+
 class UnitaryProblem(CombinatorialProblem):
 
     def __init__(self, n: int):
