@@ -16,6 +16,11 @@ In the case of a continuos problem (v_i is a float), instead of a table of value
 If v_i is independently optimisable, then this plot should behave "similarly" everywhere (grows and decreases in the same places, but let's be careful!)
 
 
+Now, I am not checking if the problem is linear or anything similar, because that would be an assumption that the objective is additively separable.
+In theory x + y + z is as separable as x * y * z, but linearity testing won't tell you that! I also don't use a ML model, because I don't want to introduce more indirection)
+In theory, my method works on linear things as well as discontinuous functions etc...
+
+
 Now, consider the function f(x, y, x) = x + y + z.
 * In (1, y, 3), the Ceteris paribus plot is 1 + y + 3, and will look like a straight line that grows as y grows.
 * In (0.2, y, 0.8), the plot will be 0.2 + y + 0.8, another straight line that grows as y grows.
