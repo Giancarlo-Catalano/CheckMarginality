@@ -2,6 +2,16 @@ import numpy as np
 
 from CombinatorialProblems.CombinatorialProblem import CombinatorialProblem
 
+class LeadingOnes(CombinatorialProblem):
+    def __init__(self, n: int):
+        cardinalities = np.ones(n, dtype=int) * 2
+        super().__init__(cardinalities)
+
+    def fitness_function(self, x):
+        for index, value in enumerate(x):
+            if value == 0:
+                return float(index)
+        return float(self.n)
 
 class UnitaryProblem(CombinatorialProblem):
 
@@ -14,6 +24,8 @@ class UnitaryProblem(CombinatorialProblem):
 
     def fitness_function(self, x):
         return self.unitary_function(np.sum(x))
+
+
 
 
 class RR(UnitaryProblem):
@@ -39,3 +51,5 @@ class Parity(UnitaryProblem):
 class OneMax(UnitaryProblem):
     def unitary_function(self, ones):
         return ones
+
+
