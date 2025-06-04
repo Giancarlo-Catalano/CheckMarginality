@@ -10,8 +10,10 @@ def run():
     random_samples_quantity = 100
     random_samples = [amalgam_problem.random_solution() for _ in range(random_samples_quantity)]
 
-    marginalities = detect_marginality_of_combinatorial(amalgam_problem, samples_to_test_on=random_samples)
-    print(np.array(marginalities * 100, dtype=int))
+    cardinality = 2
+    normalisation_denominator = cardinality * (cardinality -1)
+    marginalities = detect_marginality_of_combinatorial(amalgam_problem, samples_to_test_on=random_samples) / normalisation_denominator
+    print(np.array(marginalities, dtype=int))
 
 run()
 
